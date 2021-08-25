@@ -39,6 +39,7 @@ class App:
     destination_folder_name = None
 
     def __init__(self):
+        func = f"{__name__}.{__class__}.__init__"
 
         self.hostname = socket.gethostname()
 
@@ -53,15 +54,17 @@ class App:
         self.capture_folder_name = environ["CAPTURE_FOLDER_NAME"]
         self.destination_folder_name = environ["DESTINATION_FOLDER_NAME"]
 
-        self.verify_templates()
+        email_alert_filename = environ["CAPTURE_FOLDER_NAME"]
+        snippet_email_style_filename = environ["SNIPPET_EMAIL_STYLE_FILENAME"]
+        snippet_contact_support_filename = environ["SNIPPET_CONTACT_SUPPORT_FILENAME"]
+        snippet_teams_support_filename = environ["SNIPPET_TEAMS_SUPPORT"]
 
-    def verify_templates(self):
-        func = f"{__name__}"
-
-        self.email_template_file = "./templates/email_alert.html"
-        self.snippet_contact_support_file = "./templates/snippet_contact_support.html"
-        self.snippet_email_style = "./templates/snippet_email_style.html"
-        self.snippet_teams_support = "./templates/snippet_teams_support.html"
+        self.email_template_file = f"./templates/{email_alert_filename}"
+        self.snippet_email_style = f"./templates/{snippet_email_style_filename}"
+        self.snippet_contact_support_file = (
+            f"./templates/{snippet_contact_support_filename}"
+        )
+        self.snippet_teams_support = f"./templates/{snippet_teams_support_filename}"
 
         post_event("log_debug", f"{func}", f"Email templates loaded.")
 
