@@ -34,6 +34,10 @@ class App:
     video_alert_url = None
     teams_alert_to = None
 
+    # folders
+    capture_folder_name = None
+    destination_folder_name = None
+
     def __init__(self):
 
         self.hostname = socket.gethostname()
@@ -42,8 +46,13 @@ class App:
         self.email_server_port = environ["EMAIL_SERVER_PORT"]
         self.email_to = environ["EMAIL_TO"].split(",")
         self.sender_email = f"Video Capture Alert<just_in_alert@{self.hostname}>"
+
         self.video_alert_url = environ["VIDEO_ALERT_URL"]
         self.teams_alert_to = environ["TEAMS_ALERT_TO"].split(",")
+
+        self.capture_folder_name = environ["CAPTURE_FOLDER_NAME"]
+        self.destination_folder_name = environ["DESTINATION_FOLDER_NAME"]
+
         self.verify_templates()
 
     def verify_templates(self):
