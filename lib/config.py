@@ -23,16 +23,23 @@ class App:
     email_server_port = None
     email_to = None
     sender_email = None
+    logo_svg_url = None
 
     # templates
-    email_template_file = None
-    snippet_contact_support_file = None
-    snippet_email_style = None
-    snippet_teams_support = None
+    email_alert_template_filename = None
+    snippet_email_style_filename = None
+    snippet_teams_support_filename = None
+    snippet_contact_support_filename = None
 
     # teams related variables
     video_alert_url = None
     teams_alert_to = None
+    support_teams_link = None
+
+    # contact support variables
+    support_contact1_name = None
+    support_contact1_phone = None
+    support_contact1_email = None
 
     # folders
     capture_folder_name = None
@@ -47,24 +54,32 @@ class App:
         self.email_server_port = environ["EMAIL_SERVER_PORT"]
         self.email_to = environ["EMAIL_TO"].split(",")
         self.sender_email = f"Video Capture Alert<just_in_alert@{self.hostname}>"
+        self.logo_svg_url = environ["LOGO_SVG_URL"]
 
         self.video_alert_url = environ["VIDEO_ALERT_URL"]
         self.teams_alert_to = environ["TEAMS_ALERT_TO"].split(",")
+        self.support_teams_link = environ["SUPPORT_TEAMS_LINK"]
 
         self.capture_folder_name = environ["CAPTURE_FOLDER_NAME"]
         self.destination_folder_name = environ["DESTINATION_FOLDER_NAME"]
 
-        email_alert_filename = environ["CAPTURE_FOLDER_NAME"]
-        snippet_email_style_filename = environ["SNIPPET_EMAIL_STYLE_FILENAME"]
-        snippet_contact_support_filename = environ["SNIPPET_CONTACT_SUPPORT_FILENAME"]
-        snippet_teams_support_filename = environ["SNIPPET_TEAMS_SUPPORT"]
+        self.support_contact1_name = environ["SUPPORT_CONTACT1_NAME"]
+        self.support_contact1_phone = environ["SUPPORT_CONTACT1_PHONE"]
+        self.support_contact1_email = environ["SUPPORT_CONTACT1_EMAIL"]
 
-        self.email_template_file = f"./templates/{email_alert_filename}"
-        self.snippet_email_style = f"./templates/{snippet_email_style_filename}"
+        email_alert_template_filename = environ["EMAIL_ALERT_TEMPLATE_FILENAME"]
+        snippet_email_style_filename = environ["SNIPPET_EMAIL_STYLE_FILENAME"]
+        snippet_teams_support_filename = environ["SNIPPET_TEAMS_SUPPORT_FILENAME"]
+        snippet_contact_support_filename = environ["SNIPPET_CONTACT_SUPPORT_FILENAME"]
+
+        self.email_template_file = f"./templates/{email_alert_template_filename}"
+        self.snippet_email_style_file = f"./templates/{snippet_email_style_filename}"
         self.snippet_contact_support_file = (
             f"./templates/{snippet_contact_support_filename}"
         )
-        self.snippet_teams_support = f"./templates/{snippet_teams_support_filename}"
+        self.snippet_teams_support_file = (
+            f"./templates/{snippet_teams_support_filename}"
+        )
 
         post_event("log_debug", f"{func}", f"Email templates loaded.")
 

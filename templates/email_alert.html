@@ -1,0 +1,116 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <!-- This was modified from... source unknown -->
+    <meta name="viewport" content="width=device-width" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>%email_subject%</title>
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/email.css" />
+
+    <!-- Email Style - start -->
+    %email_style%
+    <!-- Email Style - end -->
+</head>
+
+<body bgcolor="#FFFFFF">
+
+    <!-- HEADER -->
+    <table class="head-wrap" bgcolor="#00aeef">
+        <tr>
+            <td></td>
+            <td class="header container">
+
+                <div class="content">
+                    <table bgcolor="#00aeef">
+                        <tr>
+                            <td><img src="%logo_svg%" alt="logo" width="200" height="50" /></td>
+                            <td align="right">
+                                <h6 class="collapse">%email_subject_sm%</h6>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </td>
+            <td></td>
+        </tr>
+    </table>
+    <!-- /HEADER -->
+
+
+    <!-- BODY -->
+    <table class="body-wrap">
+        <tr>
+            <td></td>
+            <td class="container" bgcolor="#FFFFFF">
+
+                <div class="content">
+                    <table>
+                        <tr>
+                            <td>
+                                <h3>Hello,</h3>
+                                <p class="lead">%headline%</p>
+                                <p class="filename" id="filepath">%clipname%</p>
+                                <p>
+                                    <b>&nbsp;&nbsp;&nbsp;%renamed_text%</b><br> Size: %capture_resolution%<br> Codec: %capture_codec%
+                                    <br> Audio Channels: %audio_channels%<br>
+                                    <br> Duration: %capture_duration%<br> Start: %inpoint%<br> End: %outpoint%<br>
+                                    <br> Full File Path:<br> %full_clipname%
+                                    <br>
+                                    <br>
+                                </p>
+                                <!-- Callout Panel -->
+                                <p class="callout">
+                                    source: %hostname% - %script_start_time%
+                                </p>
+                                <!-- /Callout Panel -->
+
+                                <!-- social & contact -->
+                                <table class="social" width="100%">
+                                    <tr>
+                                        <td>
+                                            <!-- Teams Support - start -->
+                                            %teams_support_snippet%
+                                            <!-- Teams Support - end -->
+
+                                            <!-- Contact Support - start -->
+                                            %contact_support_snippet%
+                                            <!-- Contact Support- end -->
+
+                                            <span class="clear"></span>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <!-- /social & contact -->
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- /content -->
+
+            </td>
+            <td></td>
+        </tr>
+    </table>
+    <!-- /BODY -->
+
+    <!-- FOOTER -->
+    <table class="footer-wrap">
+        <tr>
+            <td></td>
+            <td class="container">
+
+            </td>
+            <td></td>
+        </tr>
+    </table>
+    <!-- /FOOTER -->
+
+</body>
+
+</html>
