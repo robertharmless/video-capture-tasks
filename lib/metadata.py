@@ -1,11 +1,11 @@
 """
-Metadata from Just In Capture.
+Metadata from Just In Capture task.
 """
 
 
 class Metadata:
     """
-    Metadata from Just In Capture.
+    Metadata from Just In Capture task.
     """
 
     alert_type = None
