@@ -27,7 +27,7 @@ class Metadata:
     inpoint = None
     outpoint = None
 
-    def __init__(self, **args) -> None:
+    def __init__(self, args) -> None:
         self.alert_type = args[1]
         self.renamed = "False"
         # video related variables
