@@ -12,10 +12,10 @@ app = App()
 logs = Logs()
 
 # create logger
-logger = logging.getLogger(f"{app.appname}")
+logger = logging.getLogger(f"{logs.log_file_path}")
 logger.setLevel(logs.loglevel)
 
-fh = logging.FileHandler(f"{app.appname}")
+fh = logging.FileHandler(f"{logs.log_file_path}")
 fh.setLevel(logs.loglevel)
 
 ch = logging.StreamHandler()
