@@ -1,0 +1,32 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: app.py",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/app.py",
+            "console": "integratedTerminal",
+            "args": [
+                "start",
+                "Just_In_Full_Clipname",
+                "Just_In_Clipname",
+                "Just_In_Timecode_Source",
+                "Just_In_Container",
+                "Just_In_Framerate",
+                "Just_In_Aspect_Ratio",
+                "Just_In_Capture_Codec",
+                "Just_In_Audio_Channels",
+                "Just_In_Capture_Resolution",
+                "Just_In_Capture_Width",
+                "Just_In_Capture_Height",
+                "Just_In_Capture_Duration",
+                "Just_In_Capture_Inpoint",
+                "Just_In_Capture_Outpoint"
+            ]
+        }
+    ]
+}
