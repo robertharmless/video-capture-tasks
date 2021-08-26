@@ -3,7 +3,6 @@ File Processes
 """
 # Built-in
 from app import Metadata
-from json import dump
 from os import path
 from shutil import move
 
