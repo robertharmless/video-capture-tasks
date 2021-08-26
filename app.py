@@ -14,7 +14,7 @@ from api.email_listener import setup_email_event_handlers
 from api.alert_listener import setup_alert_event_handlers
 from lib.config import App
 from lib.email import generate_email_templates
-from lib.file import move_to_complete, dump_to_json
+from lib import file
 from lib.metadata import Metadata
 from lib.utilities import Timer
 
@@ -30,20 +30,22 @@ def main():
 
     post_event("log_info", f"{func}", f"Received the system args:{args}.")
 
-    timer.start
+    for arg in args:
+        post_event("log_info", f"{func}", f"Received the arg:{arg}.")
+
     metadata = Metadata(args)
 
     # script and process related variables
-    metadata["script_start_time"] = timer.start
+    metadata.script_start_time = timer.start
 
     post_event("log_info", f"{func}", f"The basic metadata:{metadata}")
 
-    if metadata["alert_type"] == "end":
-        metadata = move_to_complete(metadata)
+    if metadata.alert_type == "end":
+        metadata = file.move_to_complete(metadata)
 
     generated_template = generate_email_templates(metadata)
 
-    post_event("send_email", f"{func}", generated_template)
+    post_event("send_email", f"{func}", data=generated_template)
 
     alert_template = {"level": "DEBUG", "message": "alert message"}
     post_event("send_teams_alert", f"{func}", alert_template)
