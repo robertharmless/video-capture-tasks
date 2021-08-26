@@ -26,10 +26,10 @@ class App:
     logo_svg_url = None
 
     # templates
-    email_alert_template_filename = None
-    snippet_email_style_filename = None
-    snippet_teams_support_filename = None
-    snippet_contact_support_filename = None
+    email_alert_template_file = None
+    snippet_email_style_file = None
+    snippet_teams_support_file = None
+    snippet_contact_support_file = None
 
     # teams related variables
     video_alert_url = None
@@ -72,13 +72,13 @@ class App:
         snippet_teams_support_filename = environ["SNIPPET_TEAMS_SUPPORT_FILENAME"]
         snippet_contact_support_filename = environ["SNIPPET_CONTACT_SUPPORT_FILENAME"]
 
-        self.email_template_file = f"./templates/{email_alert_template_filename}"
+        self.email_alert_template_file = f"./templates/{email_alert_template_filename}"
         self.snippet_email_style_file = f"./templates/{snippet_email_style_filename}"
-        self.snippet_contact_support_file = (
-            f"./templates/{snippet_contact_support_filename}"
-        )
         self.snippet_teams_support_file = (
             f"./templates/{snippet_teams_support_filename}"
+        )
+        self.snippet_contact_support_file = (
+            f"./templates/{snippet_contact_support_filename}"
         )
 
         post_event("log_debug", f"{func}", f"Email templates loaded.")
